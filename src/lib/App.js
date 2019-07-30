@@ -1,7 +1,7 @@
 import './css/App.css';
 import Clappr from 'clappr'
 
-class App {
+class Zot {
 
   constructor(media, elem, options){
 
@@ -11,6 +11,9 @@ class App {
     this._options = options
 
 
+
+    if(this._media === undefined)
+      throw new TypeError('Missing parameter: media')
 
     if(this._elem === undefined)
       throw new TypeError('Missing parameter: elem')
@@ -23,16 +26,21 @@ class App {
 
   }
 
-  
+
   initMedia(){
     switch(this._media){
 
       case "video":
 
         //Check video requirements
-        this._source = (this._options.source !== 'undefined') ? this._options.source : throw new Error('Missing parameter: source')
-        this._id = this._elem.id;
-        this._player = new Clappr.Player({source: "", parentId: this._id});
+        if(this._options.source === undefined)
+          throw new TypeError('Missing parameter: options.source')
+
+        const options = {
+          ...this._options,
+          ...{parentId: `#${this._elem.id}`}
+        }
+        this._player = new Clappr.Player(options);
       break
       default:
       break
@@ -48,4 +56,4 @@ class App {
   }
 }
 
-export default App;
+export default Zot;
