@@ -1,7 +1,7 @@
 {
   "name": "zot",
   "version": "1.0.0",
-  "description": "Zot! 🌩️ A JS multi media player",
+  "description": "Zot! 🌩️ A JS multi media player!",
   "main": "build/index.js",
   "scripts": {
     "start": "node scripts/start.js",
