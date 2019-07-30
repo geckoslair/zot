@@ -1,6 +1,6 @@
 /*!
  * 
- *   zot v1.0.1
+ *   zot v1.0.2
  *   https://github.com/geckoslair/zot
  * 
  *   Copyright (c) Enrico Cicconi 
