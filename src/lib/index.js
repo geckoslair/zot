@@ -1,2 +1,2 @@
-import App from './App';
-export default App;
+import Zot from './App';
+export default Zot;

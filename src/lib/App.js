@@ -2,20 +2,37 @@ import './css/App.css';
 import Clappr from 'clappr'
 
 class App {
+
   constructor(media, elem, options){
 
     console.log("Lib constructor called");
     this._media = media
     this._elem = elem
     this._options = options
+
+
+
+    if(this._elem === undefined)
+      throw new TypeError('Missing parameter: elem')
+
+    if(this._options === undefined)
+      throw new TypeError('Missing parameter: options')
+
     this.initMedia();
 
+
   }
+
+  
   initMedia(){
     switch(this._media){
 
       case "video":
-        this._player = new Clappr.Player({source: "", parentId: ""});
+
+        //Check video requirements
+        this._source = (this._options.source !== 'undefined') ? this._options.source : throw new Error('Missing parameter: source')
+        this._id = this._elem.id;
+        this._player = new Clappr.Player({source: "", parentId: this._id});
       break
       default:
       break
