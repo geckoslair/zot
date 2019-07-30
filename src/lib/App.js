@@ -1,5 +1,6 @@
 import './css/App.css';
 import Clappr from 'clappr'
+import Flickity from 'flickity'
 
 class Zot {
 
@@ -18,9 +19,6 @@ class Zot {
     if(this._elem === undefined)
       throw new TypeError('Missing parameter: elem')
 
-    if(this._options === undefined)
-      throw new TypeError('Missing parameter: options')
-
     this.initMedia();
 
 
@@ -28,6 +26,7 @@ class Zot {
 
 
   initMedia(){
+    let options = {}
     switch(this._media){
 
       case "video":
@@ -36,11 +35,20 @@ class Zot {
         if(this._options.source === undefined)
           throw new TypeError('Missing parameter: options.source')
 
-        const options = {
+        options = {
           ...this._options,
           ...{parentId: `#${this._elem.id}`}
         }
         this._player = new Clappr.Player(options);
+      break
+      case "gallery":
+
+        options = {
+          ...{ cellAlign: 'left', contain: true },
+          ...this._options,
+        }
+
+        this._player = new Flickity(this._elem, options);
       break
       default:
       break
