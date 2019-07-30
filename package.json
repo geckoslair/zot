@@ -1,6 +1,6 @@
 {
   "name": "zot",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Zot! 🌩️ A JS multi media player!",
   "main": "build/index.js",
   "scripts": {
@@ -19,9 +19,9 @@
   "author": "Enrico Cicconi <enrico@piramid.studio>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/hodgef/js-library-boilerplate/issues"
+    "url": "https://github.com/geckoslair/zot/issues"
   },
-  "homepage": "https://github.com/hodgef/js-library-boilerplate",
+  "homepage": "https://github.com/geckoslair/zot",
   "keywords": [
     "library"
   ],
