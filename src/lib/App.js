@@ -30,6 +30,7 @@ class Zot {
     switch(this._media){
 
       case "video":
+      case "audio":
 
         //Check video requirements
         if(this._options.source === undefined)
