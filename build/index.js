@@ -1,9 +1,9 @@
 /*!
  * 
- *   @hodgef/js-library-boilerplate v2.0.13
+ *   zot v1.0.0
  *   https://github.com/hodgef/js-library-boilerplate
  * 
- *   Copyright (c) Francisco Hodge (https://github.com/hodgef)
+ *   Copyright (c) Enrico Cicconi 
  * 
  *   This source code is licensed under the MIT license found in the
  *   LICENSE file in the root directory of this source tree.
