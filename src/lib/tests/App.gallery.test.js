@@ -18,7 +18,6 @@ it('should append slide to gallery elem properly', () => {
   const element = document.createElement('div');
   const options = { source: ["https://www.fillmurray.com/460/300", "https://www.fillmurray.com/460/500"]}
   let zot = new App('gallery', element, options )
-  console.log(element.innerHTML)
   expect(zot._player.slides.length).toBe(2)
 });
 

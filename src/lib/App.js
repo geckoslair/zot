@@ -71,7 +71,7 @@ class Zot {
       switch(this._elem.tagName){
         case "DIV":
           slide = document.createElement('img')
-          slide.src = element
+          slide.setAttribute('data-flickity-lazyload', element)
           this._elem.appendChild(slide)
         break
 
