@@ -6,7 +6,6 @@ class Zot {
 
   constructor(media, elem, options){
 
-    console.log("Lib constructor called");
     this._media = media
     this._elem = elem
     this._options = options
@@ -19,6 +18,9 @@ class Zot {
     if(this._elem === undefined)
       throw new TypeError('Missing parameter: elem')
 
+    if(this._options.source === undefined)
+      throw new TypeError('Missing parameter: options.source')
+
     this.initMedia();
 
 
@@ -27,14 +29,12 @@ class Zot {
 
   initMedia(){
     let options = {}
+
     switch(this._media){
 
       case "video":
       case "audio":
 
-        //Check video requirements
-        if(this._options.source === undefined)
-          throw new TypeError('Missing parameter: options.source')
 
         options = {
           ...this._options,
@@ -43,6 +43,14 @@ class Zot {
         this._player = new Clappr.Player(options);
       break
       case "gallery":
+
+        if(this._elem.tagName !== "DIV" && this._elem.tagName !== "UL")
+          throw new TypeError('Wrong tagName: element must be a div or ul')
+
+        if(!Array.isArray(this._options.source))
+          throw new TypeError('Wrong parameter: options.source is not an array')
+
+        this.appendSlide()
 
         options = {
           ...{ cellAlign: 'left', contain: true },
@@ -55,6 +63,25 @@ class Zot {
       break
     }
   }
+
+  appendSlide(){
+    this._options.source.forEach((element, index) => {
+      let slide = null
+
+      switch(this._elem.tagName){
+        case "DIV":
+          slide = document.createElement('img')
+          slide.src = element
+          this._elem.appendChild(slide)
+        break
+
+        default:
+        break
+      }
+
+    });
+  }
+
 
   get media(){
     return this._media
