@@ -25,7 +25,7 @@ new Zot('video', elem, {source: "http://techslides.com/demos/sample-videos/small
 ### Audio element
 ```
 var elemGallery = document.getElementById("zot-gallery");
-new Zot('gallery', elemGallery, {lazyLoad: 1});
+new Zot('gallery', elemGallery, {lazyLoad: 1, source: ["https://fillmurray.com/460/300", "https://fillmurray.com/460/300"]});
 ```
 
 ### Gallery element

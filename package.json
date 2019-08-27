@@ -1,6 +1,6 @@
 {
   "name": "zot",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Zot! 🌩️ A JS multi media player!",
   "main": "build/index.js",
   "scripts": {
