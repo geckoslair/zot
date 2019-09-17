@@ -11,7 +11,6 @@ class Zot {
     this._options = options
 
 
-
     if(this._media === undefined)
       throw new TypeError('Missing parameter: media')
 
@@ -41,6 +40,10 @@ class Zot {
           ...{parentId: `#${this._elem.id}`}
         }
         this._player = new Clappr.Player(options);
+
+        document.addEventListener('zotPlay', (e) => this.aPlayerIsPlaying(e))
+        this._player.on('play', () => this.managePlayEvent())
+
       break
       case "gallery":
 
@@ -62,6 +65,18 @@ class Zot {
       default:
       break
     }
+  }
+
+  aPlayerIsPlaying(e){
+    if(this._player !== e.detail.player){
+      this._player.stop()
+    }
+  }
+
+  managePlayEvent(e){
+    document.dispatchEvent(new CustomEvent('zotPlay', {'detail': {
+        player: this._player
+    }}))
   }
 
   appendSlide(){
