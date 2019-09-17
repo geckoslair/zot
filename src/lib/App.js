@@ -69,7 +69,7 @@ class Zot {
 
   aPlayerIsPlaying(e){
     if(this._player !== e.detail.player){
-      this._player.stop()
+      this._player.pause()
     }
   }
 
